@@ -45,7 +45,7 @@ const App = () => {
     );
 
     return (
-        <div class="content">
+        <div className="content">
             {/* Display a random value from 1 to 100*/}
             <div className="rules">Fizz = 3, Buzz = 5</div>
             <div>
@@ -88,7 +88,11 @@ const App = () => {
                 >
                     {"Buzz\n⬇"}
                 </button>
-                <div className="grade">{grades.join(" ")}</div>
+                <div className="grade">
+                    {grades
+                        .map((grade) => (grade === "P" ? "🟢" : "🔴"))
+                        .join(" ")}
+                </div>
             </div>
         </div>
     );
