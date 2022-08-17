@@ -21,6 +21,17 @@
     font-size: 3rem;
 }
 
+/* Button Styles */
+.buttons {
+    position: relative;
+}
+
+.center-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .button {
     width: 20rem;
     font-size: 3rem;
@@ -47,10 +58,6 @@
     padding-right: 1rem;
 }
 
-.center-row {
-    display: flex;
-    align-items: center;
-}
 
 .value {
     font-size: 3rem;
@@ -58,7 +65,7 @@
 }
 
 .grade {
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-top: 2rem;
 }
 

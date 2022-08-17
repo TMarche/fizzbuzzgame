@@ -48,7 +48,7 @@ const App = () => {
         <div className="content">
             {/* Display a random value from 1 to 100*/}
             <div className="rules">Fizz = 3, Buzz = 5</div>
-            <div>
+            <div className="buttons">
                 <button
                     className="button button-fizz"
                     onClick={() => {
