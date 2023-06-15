@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { useEventListener } from "./hooks/useEventListener";
 // import "./App.css";
 
@@ -80,47 +80,53 @@ const App = () => {
     useEventListener("keydown", handleKeyDown);
 
     return (
-        <div className="bg-neutral-800 h-full min-h-screen flex flex-col justify-center items-center">
-            <div
-                className="block bg-neutral-700 p-5 rounded-md text-white"
-                onKeyDown={handleKeyDown}
-            >
-                {/* Display a random value from 1 to 100*/}
-                <div className="mb-4 text-3xl text-center text-yellow-500">
-                    Fizz = 3, Buzz = 5
-                </div>
-                <div className="relative">
-                    <button
-                        className="w-40 text-xl block m-auto bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
-                        onClick={() => handleFizz()}
-                    >
-                        {"⬆ Fizz"}
-                    </button>
-                    <div className="flex justify-center items-center">
+        <div className="relative bg-neutral-800 h-full min-h-screen">
+            <div className="absolute top-[20%] w-full bg-neutral-800">
+                <div
+                    className="max-w-fit mx-auto block bg-neutral-700 p-5 rounded-md text-white backdrop-blur-sm"
+                    onKeyDown={handleKeyDown}
+                >
+                    {/* Display a random value from 1 to 100*/}
+                    <div className="mb-4 text-3xl text-center text-yellow-500">
+                        Fizz = 3, Buzz = 5
+                    </div>
+                    <div className="relative">
                         <button
-                            className="w-40 text-xl m-4 bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
-                            onClick={() => handleValue()}
+                            className="w-40 text-xl block m-auto bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
+                            onClick={() => handleFizz()}
                         >
-                            {`⬅ ${value}`}
+                            {"⬆ Fizz"}
                         </button>
-                        <div className="w-40 text-xl text-center">{value}</div>
+                        <div className="flex justify-center items-center">
+                            <button
+                                className="w-40 text-xl m-4 bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
+                                onClick={() => handleValue()}
+                            >
+                                {`⬅ ${value}`}
+                            </button>
+                            <div className="w-40 text-xl text-center">
+                                {value}
+                            </div>
+                            <button
+                                className="w-40 text-xl m-4 bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
+                                onClick={() => handleFizzBuzz()}
+                            >
+                                {"FizzBuzz ➡"}
+                            </button>
+                        </div>
                         <button
-                            className="w-40 text-xl m-4 bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
-                            onClick={() => handleFizzBuzz()}
+                            className="w-40 text-xl block m-auto bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
+                            onClick={() => handleBuzz()}
                         >
-                            {"FizzBuzz ➡"}
+                            {"Buzz ⬇"}
                         </button>
                     </div>
-                    <button
-                        className="w-40 text-xl block m-auto bg-neutral-800 p-2 rounded-md hover:-translate-y-0.5 hover:drop-shadow-xl"
-                        onClick={() => handleBuzz()}
-                    >
-                        {"Buzz ⬇"}
-                    </button>
                 </div>
-            </div>
-            <div className="grades w-96 mt-4 mx-auto break-words">
-                {grades.map((grade) => (grade === "P" ? "🟢" : "🔴")).join(" ")}
+                <div className="grades w-96 mt-4 mx-auto break-words">
+                    {grades
+                        .map((grade) => (grade === "P" ? "🟢" : "🔴"))
+                        .join(" ")}
+                </div>
             </div>
         </div>
     );
